@@ -7,10 +7,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
       <>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <button className="btn btn-primary">Primary</button>
-        <button className="btn btn-secondary">Secondary</button>
-        <button className="btn btn-accent">Accent</button>
+        <h1 className="text-3xl font-bold underline font-raleway">
+          Hello world!
+        </h1>
+        <p className="font-chakraPetch">This is a paragraph</p>
       </>
     </HelmetProvider>
   </React.StrictMode>
