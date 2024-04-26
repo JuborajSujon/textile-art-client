@@ -4,11 +4,14 @@ import { HelmetProvider } from "react-helmet-async";
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import router from "./Router/Router";
+import AuthProvider from "./AuthProvider/AuthProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
