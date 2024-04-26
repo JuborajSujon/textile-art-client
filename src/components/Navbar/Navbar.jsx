@@ -30,19 +30,59 @@ const Navbar = () => {
 
   const navList = (
     <>
-      <li className="hover:bg-yellow-400 rounded-lg ">
-        <NavLink to="/">Home</NavLink>
+      <li className="">
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-slate-900 dark:text-yellow-400 border-b-4 border-yellow-400 hover:border-slate-300"
+              : "hover:text-slate-900 hover:bg-yellow-400 dark:text-yellow-400 dark:hover:text-slate-900"
+          }>
+          Home
+        </NavLink>
       </li>
-      <li className="hover:bg-yellow-400 rounded-lg">
-        <NavLink to="/all-art-craft">All Art & Craft Items</NavLink>
+      <li>
+        <NavLink
+          to="/all-art-craft"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-slate-900 dark:text-yellow-400 border-b-4 border-yellow-400 hover:border-slate-300"
+              : "hover:text-slate-900 hover:bg-yellow-400 dark:text-yellow-400 dark:hover:text-slate-900"
+          }>
+          All Art & Craft Items
+        </NavLink>
       </li>
       {user && (
         <>
-          <li className="hover:bg-yellow-400 rounded-lg">
-            <NavLink to="/add-craft">Add Craft Item</NavLink>
+          <li>
+            <NavLink
+              to="/add-craft"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-slate-900 dark:text-yellow-400 border-b-4 border-yellow-400 hover:border-slate-300"
+                  : "hover:text-slate-900 hover:bg-yellow-400 dark:text-yellow-400 dark:hover:text-slate-900"
+              }>
+              Add Craft Item
+            </NavLink>
           </li>
-          <li className="hover:bg-yellow-400 rounded-lg">
-            <NavLink to="/my-craft-list">My Art & Craft List</NavLink>
+          <li>
+            <NavLink
+              to="/my-craft-list"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-slate-900 dark:text-yellow-400 border-b-4 border-yellow-400 hover:border-slate-300"
+                  : "hover:text-slate-900 hover:bg-yellow-400 dark:text-yellow-400 dark:hover:text-slate-900"
+              }>
+              My Art & Craft List
+            </NavLink>
           </li>
         </>
       )}
@@ -51,13 +91,13 @@ const Navbar = () => {
   return (
     <div
       onMouseLeave={handleMouseLeave}
-      className="navbar max-w-[1540px] fixed  z-10 bg-white dark:bg-slate-900  px-4">
+      className="navbar max-w-[1540px] fixed  z-10 bg-white dark:bg-slate-900 dark:text-slate-300 px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost min-h-9 h-9 px-2  md:hidden hover:bg-green-500 hover:text-white">
+            className="btn btn-ghost min-h-9 h-9 px-2  md:hidden hover:bg-yellow-500 hover:text-slate-900">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -95,7 +135,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end  space-x-2">
         {/*Theme toggle Controller*/}
-        <ThemeController />
+        <div className="hidden sm:block">
+          <ThemeController />
+        </div>
 
         {user ? (
           <div className="relative">
@@ -133,15 +175,15 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <div className="space-x-2">
+          <div className="flex gap-1 sm:gap-2">
             <Link to="/login">
-              <button className="px-2 rounded-md border border-yellow-400 hover:bg-yellow-400 text-base  font-semibold min-h-8 h-8 sm:min-h-10 sm:h-10">
+              <button className="px-2 rounded-md border border-yellow-400 hover:bg-yellow-400 hover:text-slate-900 text-base  font-semibold min-h-8 h-8 sm:min-h-10 sm:h-10">
                 Login
               </button>
             </Link>
 
             <Link to="/register">
-              <button className="px-2 rounded-md border border-yellow-400 hover:bg-yellow-400 text-base font-semibold min-h-8 h-8 sm:min-h-10 sm:h-10">
+              <button className="px-2 rounded-md border border-yellow-400 hover:bg-yellow-400 hover:text-slate-900 text-base font-semibold min-h-8 h-8 sm:min-h-10 sm:h-10">
                 Register
               </button>
             </Link>
