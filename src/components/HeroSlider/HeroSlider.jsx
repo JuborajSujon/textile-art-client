@@ -27,17 +27,18 @@ const HeroSlider = () => {
       scrollbar={{ draggable: true }}
       autoplay={{ delay: 3000, disableOnInteraction: false }}>
       <SwiperSlide>
-        <div className="relative h-[70vh] w-full bg-[url('https://isaw.nyu.edu/home-slides/textiles-slider-sm.jpg/image')] bg-no-repeat bg-cover flex items-center bg-center">
+        <div className="relative h-[70vh] w-full bg-[url('https://i.ibb.co/Hqr549Y/Hero2.jpg')] bg-no-repeat bg-cover flex items-center bg-center">
           <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto relative">
             <div className="grid grid-cols-1">
               <div className="text-center">
                 <h1 className="font-bold text-white lg:leading-normal leading-normal text-3xl sm:text-4xl lg:text-5xl mb-6 ">
-                  Easy way to find your <br /> dream property
+                  Explore the Tapestry of <br /> Textile Creations
                 </h1>
                 <p className="text-white/70 text-xl max-w-xl mx-auto">
-                  A great plateform to buy, sell and rent your properties
-                  without any agent or commisions.
+                  Wrap yourself in warmth and style with our handcrafted knits
+                  and crochets. Our artisanal creations blend comfort with
+                  timeless elegance.
                 </p>
 
                 <div className="mt-6">
@@ -53,17 +54,17 @@ const HeroSlider = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="relative h-[70vh] w-full bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrD32QPa2OzMSNHoj2Bb9SEEhS_tc2bB9KvT91-YYkyQ&s')] bg-no-repeat bg-cover flex items-center bg-center">
+        <div className="relative h-[70vh] w-full bg-[url('https://i.ibb.co/sR5rXLw/Hero3.jpg')] bg-no-repeat bg-cover flex items-center bg-center">
           <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto relative">
             <div className="grid grid-cols-1">
               <div className="text-center">
                 <h1 className="font-bold text-white lg:leading-normal leading-normal text-3xl sm:text-4xl lg:text-5xl mb-6 ">
-                  We will help you find <br /> your Wonderful home
+                  Where Creativity Weaves <br /> its Magic
                 </h1>
                 <p className="text-white/70 text-xl max-w-xl mx-auto">
-                  A great plateform to buy, sell and rent your properties
-                  without any agent or commisions.
+                  Experience the mesmerizing beauty of beadwork as tiny beads
+                  come together to form intricate patterns and dazzling designs.
                 </p>
 
                 <div className="mt-6">
@@ -79,18 +80,19 @@ const HeroSlider = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="relative h-[70vh] w-full bg-[url('https://www.shutterstock.com/image-illustration/photo-wallpaper-mural-feather-popular-600w-1985022236.jpg')] bg-no-repeat bg-cover flex items-center bg-center">
+        <div className="relative h-[70vh] w-full bg-[url('https://i.ibb.co/wRv62Nf/Hero1.jpg')] bg-no-repeat bg-cover flex items-center bg-center">
           <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto relative">
             <div className="grid grid-cols-1">
               <div className="text-center">
                 <h1 className="font-bold text-white lg:leading-normal leading-normal text-3xl sm:text-4xl lg:text-5xl mb-6 ">
-                  Special offers or deals
-                  <br /> Select properties
+                  Unveiling the Artisanal
+                  <br /> World of Textile Mastery
                 </h1>
                 <p className="text-white/70 text-xl max-w-xl mx-auto">
-                  A great plateform to buy, sell and rent your properties
-                  without any agent or commisions.
+                  Elevate your space with the timeless charm of macrame. Our
+                  hand-knotted creations blend modern design with bohemian
+                  flair, adding texture and personality to any room.
                 </p>
 
                 <div className="mt-6">
