@@ -1,9 +1,8 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <section className="relative w-full dark:bg-slate-800 h-full py-40 min-h-screen">
-      <div className="absolute top-0 w-full h-full bg-[url(https://i.ibb.co/9rHg0MK/register-bg-2.webp)] bg-no-repeat bg-cover "></div>
+    <section className="relative w-full min-h-screen dark:bg-slate-800 h-full py-40  bg-[url(https://i.ibb.co/mBBHggp/bg-login-final.png)] bg-no-repeat bg-cover bg-center ">
       <div className="container mx-auto px-4 h-full">
         <div className="flex content-center items-center justify-center h-full">
           <div className="w-full lg:w-4/12 px-4">
@@ -16,7 +15,7 @@ const Login = () => {
                 </div>
                 <div className="btn-wrapper text-center">
                   <button
-                    className="bg-white active:bg-slate-50 text-slate-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-slate-50 text-slate-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow border-2 border-transparent hover:border-2 hover:border-yellow-400 hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button">
                     <img
                       alt="..."
@@ -26,7 +25,7 @@ const Login = () => {
                     Github
                   </button>
                   <button
-                    className="bg-white active:bg-slate-50 text-slate-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-slate-50 text-slate-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow border-2 border-transparent hover:shadow-md hover:border-2 hover:border-yellow-400 inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button">
                     <img
                       alt="..."
@@ -81,7 +80,7 @@ const Login = () => {
                   </div>
                   <div className="text-center mt-6">
                     <button
-                      className="bg-slate-800 text-white  hover:bg-slate-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="bg-slate-800 text-white  hover:bg-slate-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none border-2 border-transparent hover:border-2 hover:border-yellow-400 focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="button">
                       Sign In
                     </button>
@@ -91,14 +90,16 @@ const Login = () => {
             </div>
             <div className="flex flex-wrap mt-6 relative">
               <div className="w-1/2">
-                <a className="text-slate-900 dark:text-slate-300">
+                <Link className="text-slate-900 dark:text-slate-300">
                   <small className="text-base">Forgot password?</small>
-                </a>
+                </Link>
               </div>
               <div className="w-1/2 text-right">
-                <a className="text-slate-900 dark:text-slate-300">
+                <Link
+                  to="/register"
+                  className="text-slate-900 dark:text-slate-300">
                   <small className="text-base">Create new account</small>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
