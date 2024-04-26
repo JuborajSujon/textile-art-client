@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
+
 const Home = () => {
   return (
     <div>
