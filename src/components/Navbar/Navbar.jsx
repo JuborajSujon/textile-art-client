@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../customHook/useAuth";
+import ThemeController from "../ThemeController/ThemeController";
 
 const Navbar = () => {
   const { userSignOut, setUser, user, reload, isHovered, setIsHovered } =
@@ -93,6 +94,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end  space-x-2">
+        {/*Theme toggle Controller*/}
+        <ThemeController />
+
         {user ? (
           <div className="relative">
             <div className="flex items-center  gap-1 sm:gap-2">
@@ -131,13 +135,13 @@ const Navbar = () => {
         ) : (
           <div className="space-x-2">
             <Link to="/login">
-              <button className="btn btn-ghost border border-yellow-400 hover:bg-yellow-400 text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
+              <button className="px-2 rounded-md border border-yellow-400 hover:bg-yellow-400 text-base  font-semibold min-h-8 h-8 sm:min-h-10 sm:h-10">
                 Login
               </button>
             </Link>
 
             <Link to="/register">
-              <button className="btn btn-ghost border border-yellow-400 hover:bg-yellow-400 text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
+              <button className="px-2 rounded-md border border-yellow-400 hover:bg-yellow-400 text-base font-semibold min-h-8 h-8 sm:min-h-10 sm:h-10">
                 Register
               </button>
             </Link>

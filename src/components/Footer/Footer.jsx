@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#121922] text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="container mx-auto pt-32 px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="">
@@ -86,14 +86,14 @@ const Footer = () => {
               </p>
               <div className="flex flex-nowrap">
                 <input
-                  className="form-input w-full rounded-l-[8px] rounded-r-none border-r-0 border-transparent px-4"
+                  className="form-input w-full rounded-l-[8px] rounded-r-none border-r-0 border-transparent px-4 text-slate-900 dark:text-slate-200 dark:border-slate-200 dark:border"
                   placeholder="Your email adress"
                   type="text"
                   name="subscribe"
                   autoComplete="off"
                 />{" "}
                 <button
-                  className="btn bg-yellow-400 font-bold rounded-l-none rounded-r-[8px] hover:bg-transparent hover:text-yellow-400 hover:border-yellow-400 w-40"
+                  className="btn bg-yellow-400 font-bold rounded-l-none rounded-r-[8px] hover:bg-transparent border border-yellow-400 hover:text-yellow-400 hover:border-yellow-400 w-40 lg:w-28 xl:w-40 dark:text-black dark:hover:text-yellow-400 "
                   type="submit">
                   Subscribe
                 </button>
