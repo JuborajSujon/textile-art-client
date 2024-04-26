@@ -18,9 +18,9 @@ const Footer = () => {
               </h2>
               <p className="mb-4 lg:mb-8 text-white pr-8">
                 Textile arts are arts and crafts that use plant, animal, or
-                synthetic fibers to create decorative or practical objects. It's
-                one of the oldest forms of art and has been a part of human life
-                since the beginning of civilization.
+                synthetic fibers to create decorative or practical objects. It
+                is one of the oldest forms of art and has been a part of human
+                life since the beginning of civilization.
               </p>
               <div>
                 <h5 className="mb-4 text-white">Follow Us</h5>
