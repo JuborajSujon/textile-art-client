@@ -1,16 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { useForm } from "react-hook-form";
 import useAuth from "../customHook/useAuth";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
-import { useEffect, useState } from "react";
 
-const Login = () => {
+const Register = () => {
   const [password, setPassword] = useState("");
-  const { signInUser, googleLogin, githubLogin } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const {
     register,
@@ -24,43 +23,65 @@ const Login = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Login Handler
+  // Register Handler for create user , update user profile
   const onSubmit = (data) => {
-    const { email, password } = data;
-    // Login Handler
-    signInUser(email, password)
+    const { email, password, fullName, photoURL } = data;
+
+    if (password.length < 6) {
+      toast.error("Password must be 6 characters or longer", {
+        autoClose: 2000,
+      });
+      return;
+    }
+
+    if (!/(?=.*[A-Z])/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter", {
+        autoClose: 2000,
+      });
+      return;
+    }
+
+    if (!/(?=.*[a-z])/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter", {
+        autoClose: 2000,
+      });
+      return;
+    }
+    // Register Handler for create user
+    createUser(email, password)
       .then((result) => {
-        toast.success("Login Successful", { autoClose: 2000 });
         const user = result.user;
 
+        toast.success("User Created Successfully", {
+          autoClose: 2000,
+        });
+        // update user profile
+        updateUserProfile(fullName, photoURL)
+          .then(() => {
+            window.location.reload();
+          })
+          .catch(() => {
+            toast.error("User Profile Updated Failed", {
+              autoClose: 2000,
+            });
+          });
+
         if (user) {
-          navigate(location?.state || "/");
+          navigate("/");
         }
       })
       .catch(() => {
-        toast.error("Login Failed", { autoClose: 2000 });
+        toast.error("User Created Failed", {
+          autoClose: 2000,
+        });
       });
     reset();
   };
 
-  // Handle social login
-  const handleSocialLogin = (socialProvider) => {
-    socialProvider()
-      .then((result) => {
-        const user = result.user;
-        toast.success("Login Successful", { autoClose: 2000 });
-        if (user) {
-          navigate(location?.state || "/");
-        }
-      })
-      .catch(() => {
-        toast.error("Login Failed", { autoClose: 2000 });
-      });
-  };
   return (
     <>
       <Helmet>
-        <title>Textile Art | Login</title>
+        <title>Textile Art | Register</title>
       </Helmet>
       <section className="relative w-full min-h-screen dark:bg-slate-800 h-full py-40  bg-[url(https://i.ibb.co/mBBHggp/bg-login-final.png)] bg-no-repeat bg-cover bg-center ">
         <div className="container mx-auto px-4 h-full">
@@ -70,40 +91,32 @@ const Login = () => {
                 <div className="rounded-t mb-0 px-6 py-6">
                   <div className="text-center mb-3">
                     <h6 className="text-slate-500 text-sm font-bold">
-                      Sign in with
+                      Sign Up with
                     </h6>
                   </div>
-                  <div className="btn-wrapper text-center">
-                    <button
-                      onClick={() => handleSocialLogin(githubLogin)}
-                      className="bg-white active:bg-slate-50 text-slate-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow border-2 border-transparent hover:border-2 hover:border-yellow-400 hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                      type="button">
-                      <img
-                        alt="..."
-                        className="w-5 mr-1"
-                        src="https://demos.creative-tim.com/notus-nextjs/img/github.svg"
-                      />
-                      Github
-                    </button>
-                    <button
-                      onClick={() => handleSocialLogin(googleLogin)}
-                      className="bg-white active:bg-slate-50 text-slate-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow border-2 border-transparent hover:shadow-md hover:border-2 hover:border-yellow-400 inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                      type="button">
-                      <img
-                        alt="..."
-                        className="w-5 mr-1"
-                        src="https://demos.creative-tim.com/notus-nextjs/img/google.svg"
-                      />
-                      Google
-                    </button>
-                  </div>
+
                   <hr className="mt-6 border-b-1 border-slate-300" />
                 </div>
                 <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                  <div className="text-slate-400 text-center mb-3 font-bold">
-                    <small>Or sign in with credentials</small>
-                  </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-slate-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password">
+                        Name
+                      </label>
+                      <input
+                        {...register("fullName", { required: true })}
+                        type="text"
+                        className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="Name"
+                      />
+                      {errors.fullName && (
+                        <span className="text-red-500">
+                          Please enter a valid name
+                        </span>
+                      )}
+                    </div>
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-slate-600 text-xs font-bold mb-2"
@@ -113,14 +126,31 @@ const Login = () => {
                       <input
                         {...register("email", { required: true })}
                         type="email"
-                        name="email"
                         className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Email"
                       />
                       {errors.email && (
-                        <p className="text-red-500">
+                        <span className="text-red-500">
                           Please enter a valid email
-                        </p>
+                        </span>
+                      )}
+                    </div>
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-slate-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password">
+                        Photo URL
+                      </label>
+                      <input
+                        {...register("photoURL")}
+                        type="text"
+                        className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="Photo URL"
+                      />
+                      {errors.photoURL && (
+                        <span className="text-red-500">
+                          Please enter a valid photo URL
+                        </span>
                       )}
                     </div>
                     <div className="relative w-full mb-3">
@@ -159,7 +189,6 @@ const Login = () => {
                       <label className="inline-flex items-center cursor-pointer">
                         <input
                           type="checkbox"
-                          id="customCheckLogin"
                           className="form-checkbox border-0 rounded text-slate-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                         />
                         <span className="ml-2 text-sm font-semibold text-slate-600">
@@ -167,29 +196,40 @@ const Login = () => {
                         </span>
                       </label>
                     </div>
+
+                    <div className="flex items-center mb-4">
+                      <input
+                        type="checkbox"
+                        className="form-checkbox border-0 rounded text-slate-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
+                      />
+                      <label className="text-slate-400" htmlFor="RememberMe">
+                        I Accept
+                      </label>
+                      <Link to={"/terms"} className="text-green-500 link ml-2">
+                        Terms and Conditions
+                      </Link>
+                    </div>
                     <div className="text-center mt-6">
                       <button
                         className="bg-slate-800 text-white  hover:bg-slate-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none border-2 border-transparent hover:border-2 hover:border-yellow-400 focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                         type="submit">
-                        Sign In
+                        Sign Up
                       </button>
                     </div>
                   </form>
                 </div>
               </div>
-              <div className="flex flex-wrap mt-6 relative">
-                <div className="w-1/2">
-                  <Link className="text-slate-900 dark:text-slate-300 hover:underline">
-                    <small className="text-base">Forgot password?</small>
-                  </Link>
-                </div>
-                <div className="w-1/2 text-right">
-                  <Link
-                    to="/register"
-                    className="text-slate-900 dark:text-slate-300 hover:underline">
-                    <small className="text-base">Create new account</small>
-                  </Link>
-                </div>
+              <div className="text-center mt-6 relative">
+                <p className="text-slate-900 dark:text-slate-300">
+                  <small className="text-base">
+                    Already have an account?{" "}
+                    <Link
+                      to="/Login"
+                      className="text-slate-900 underline dark:text-slate-300 hover:font-bold">
+                      login
+                    </Link>
+                  </small>
+                </p>
               </div>
             </div>
           </div>
@@ -199,4 +239,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

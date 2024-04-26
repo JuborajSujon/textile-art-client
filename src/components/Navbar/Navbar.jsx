@@ -79,7 +79,7 @@ const Navbar = () => {
         </div>
         <Link
           to={"/"}
-          className="btn btn-ghost text-xl sm:text-2xl md:text-3xl lg:text-4xl italic font-bold  min-h-10 h-10 -ml-2 ">
+          className="btn btn-ghost hover:bg-stone-900 text-xl sm:text-2xl md:text-3xl lg:text-4xl italic font-bold  min-h-10 h-12 -ml-2 ">
           <img
             className="w-10"
             src="https://i.ibb.co/9gj2ShB/logo.png"
@@ -96,13 +96,10 @@ const Navbar = () => {
         {user ? (
           <div className="relative">
             <div className="flex items-center  gap-1 sm:gap-2">
-              <div className="text-base sm:text-xl font-semibold hidden lg:block">
-                {user?.displayName}
-              </div>
               <label
                 onMouseOver={handleMouseEnter}
                 tabIndex={0}
-                className="btn btn-ghost btn-circle avatar hover:bg-green-500 min-h-8 h-10 w-10  sm:min-h-12 sm:h-12 sm:w-12">
+                className="btn btn-ghost btn-circle avatar hover:bg-yellow-500 min-h-8 h-10 w-10  sm:min-h-12 sm:h-12 sm:w-12">
                 <div className="w-12 rounded-full">
                   <img
                     className=""
