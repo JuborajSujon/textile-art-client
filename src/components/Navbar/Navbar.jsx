@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../customHook/useAuth";
 
 const Navbar = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const { userSignOut, user, setUser, reload } = useAuth();
+  const { userSignOut, setUser, user, reload, isHovered, setIsHovered } =
+    useAuth();
 
   // handle user info show or hide on navbar
   const handleMouseEnter = () => {
@@ -48,7 +48,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar max-w-[1540px] fixed  z-10 bg-white dark:bg-slate-900  px-4">
+    <div
+      onMouseLeave={handleMouseLeave}
+      className="navbar max-w-[1540px] fixed  z-10 bg-white dark:bg-slate-900  px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -98,8 +100,7 @@ const Navbar = () => {
                 {user?.displayName}
               </div>
               <label
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseOver={handleMouseEnter}
                 tabIndex={0}
                 className="btn btn-ghost btn-circle avatar hover:bg-green-500 min-h-8 h-10 w-10  sm:min-h-12 sm:h-12 sm:w-12">
                 <div className="w-12 rounded-full">
@@ -111,19 +112,21 @@ const Navbar = () => {
                   />
                 </div>
               </label>
-
-              <button
-                onClick={handleLogout}
-                className="btn btn-ghost border border-green-500 hover:bg-green-500 hover:text-white text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
-                Logout
-              </button>
             </div>
             {isHovered && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-0 -ml-32 z-[1] py-3 px-4 shadow bg-base-100 rounded-md w-64 absolute">
+                onMouseLeave={handleMouseLeave}
+                className="menu menu-sm dropdown-content mt-0 -ml-48 z-[1] py-3 px-4 shadow bg-base-100 rounded-md w-64 absolute space-y-2">
                 <li className="text-base font-medium">
                   Name : {user?.displayName || "user name not found"}
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-ghost border border-yellow-400 hover:bg-yellow-500 text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
+                    Logout
+                  </button>
                 </li>
               </ul>
             )}

@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   // create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -93,6 +94,8 @@ const AuthProvider = ({ children }) => {
     setLoading,
     setReload,
     reload,
+    isHovered,
+    setIsHovered,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
