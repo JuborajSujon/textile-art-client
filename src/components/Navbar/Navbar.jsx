@@ -29,18 +29,18 @@ const Navbar = () => {
 
   const navList = (
     <>
-      <li className="hover:bg-yellow-400 hover:text-white rounded-lg ">
+      <li className="hover:bg-yellow-400 rounded-lg ">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="hover:bg-yellow-400 hover:text-white rounded-lg">
+      <li className="hover:bg-yellow-400 rounded-lg">
         <NavLink to="/all-art-craft">All Art & Craft Items</NavLink>
       </li>
       {user && (
         <>
-          <li className="hover:bg-yellow-400 hover:text-white rounded-lg">
+          <li className="hover:bg-yellow-400 rounded-lg">
             <NavLink to="/add-craft">Add Craft Item</NavLink>
           </li>
-          <li className="hover:bg-yellow-400 hover:text-white rounded-lg">
+          <li className="hover:bg-yellow-400 rounded-lg">
             <NavLink to="/my-craft-list">My Art & Craft List</NavLink>
           </li>
         </>
@@ -129,10 +129,16 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <div>
+          <div className="space-x-2">
             <Link to="/login">
-              <button className="btn btn-ghost border border-green-500 hover:bg-green-500 hover:text-white text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
+              <button className="btn btn-ghost border border-yellow-400 hover:bg-yellow-400 text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
                 Login
+              </button>
+            </Link>
+
+            <Link to="/register">
+              <button className="btn btn-ghost border border-yellow-400 hover:bg-yellow-400 text-base sm:text-xl font-semibold min-h-8 h-8 px-2 sm:px-4 sm:min-h-10 sm:h-10">
+                Register
               </button>
             </Link>
           </div>
