@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
-import auth from "../firebase/firebase.config";
+import auth from "../firebase/firebase.confi";
 
 // Social Auth Provider
 const googleProvider = new GoogleAuthProvider();

@@ -4,10 +4,10 @@ import Navbar from "./../../components/Navbar/Navbar";
 const Root = () => {
   return (
     <div className="font-raleway">
-      <div className="h-[60px]">
+      <div className="h-[76px]">
         <Navbar />
       </div>
-      <div className="min-h-[calc(100vh-76px)] overflow-x-hidden  ">
+      <div className="min-h-[calc(100vh-120px)] overflow-x-hidden ">
         <Outlet />
       </div>
       <h1 className="text-3xl font-bold">Footer</h1>

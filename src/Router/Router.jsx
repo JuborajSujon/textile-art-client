@@ -24,6 +24,21 @@ const router = createBrowserRouter([
         path: "/terms",
         element: <div>Terms</div>,
       },
+
+      {
+        path: "/all-art-craft",
+        element: <div>All Art & Craft Items</div>,
+      },
+
+      {
+        path: "/add-craft",
+        element: <div>Add Craft Item</div>,
+      },
+
+      {
+        path: "/my-craft-list",
+        element: <div>My Art & Craft List</div>,
+      },
     ],
   },
 ]);

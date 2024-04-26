@@ -29,19 +29,19 @@ const Navbar = () => {
 
   const navList = (
     <>
-      <li className="hover:bg-green-500 hover:text-white rounded-lg ">
+      <li className="hover:bg-yellow-400 hover:text-white rounded-lg ">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="hover:bg-green-500 hover:text-white rounded-lg">
-        <NavLink to="/contact">Contact</NavLink>
+      <li className="hover:bg-yellow-400 hover:text-white rounded-lg">
+        <NavLink to="/all-art-craft">All Art & Craft Items</NavLink>
       </li>
       {user && (
         <>
-          <li className="hover:bg-green-500 hover:text-white rounded-lg">
-            <NavLink to="/aboutus">About Us</NavLink>
+          <li className="hover:bg-yellow-400 hover:text-white rounded-lg">
+            <NavLink to="/add-craft">Add Craft Item</NavLink>
           </li>
-          <li className="hover:bg-green-500 hover:text-white rounded-lg">
-            <NavLink to="/profile">Update Profile</NavLink>
+          <li className="hover:bg-yellow-400 hover:text-white rounded-lg">
+            <NavLink to="/my-craft-list">My Art & Craft List</NavLink>
           </li>
         </>
       )}
@@ -77,8 +77,12 @@ const Navbar = () => {
         </div>
         <Link
           to={"/"}
-          className="btn btn-ghost text-xl sm:text-2xl md:text-3xl lg:text-4xl italic font-bold  min-h-10 h-10 text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-900 hover:from-emerald-500 hover:to-yellow-700 -ml-2 ">
-          LUXINESY
+          className="btn btn-ghost text-xl sm:text-2xl md:text-3xl lg:text-4xl italic font-bold  min-h-10 h-10 -ml-2 ">
+          <img
+            className="w-10"
+            src="https://i.ibb.co/9gj2ShB/logo.png"
+            alt="logo"
+          />
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
