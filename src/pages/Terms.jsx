@@ -147,10 +147,6 @@ const Terms = () => {
                   </li>
                 </ul>
 
-                <h5 className="text-xl font-medium mt-8">
-                  Users Question & Answer :
-                </h5>
-
                 <div className="mt-6">
                   <a className="btn bg-yellow-600 hover:bg-yellow-700 text-white rounded-md">
                     Accept

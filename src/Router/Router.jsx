@@ -4,12 +4,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import Terms from "../pages/Terms";
+import ErrorPage from "./../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <div>ErrorPage</div>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
