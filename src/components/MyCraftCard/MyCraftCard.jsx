@@ -24,12 +24,6 @@ const MyCraftCard = () => {
           src="https://i.ibb.co/Hqr549Y/Hero2.jpg"
           alt="Craft Item"
         />
-
-        <div className="absolute top-4 end-4">
-          <p className="p-2 btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-700 dark:text-slate-300 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600">
-            <AiFillHeart size={20} />
-          </p>
-        </div>
       </div>
 
       <div className="p-6 flex-grow  flex flex-col justify-between">
@@ -40,33 +34,7 @@ const MyCraftCard = () => {
             Item Title
           </h3>
         </div>
-        <div className="pb-4 flex items-center justify-between">
-          <div>
-            <p className="text-slate-900 dark:text-slate-300  font-semibold">
-              Subcategory Name
-            </p>
-            <p className="text-slate-900 dark:text-slate-300  font-semibold">
-              Customization
-            </p>
-          </div>
-          <p
-            className={`text-base font-medium ${
-              isStock
-                ? "text-green-500 hover:text-slate-900  dark:text-slate-200 dark:hover:text-green-600"
-                : "text-yellow-500 hover:text-blue-400 dark:text-slate-900 dark:hover:text-yellow-500"
-            }`}>
-            {stockStatus}
-          </p>
-        </div>
-
-        <div className="pb-4">
-          <p className="text-slate-600 dark:text-slate-300 font-chakraPetch">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-
-        <ul className="pt-6 flex justify-between items-center list-none">
+        <ul className=" flex justify-between items-center list-none">
           <li>
             <p className="text-lg dark:text-slate-300 font-medium">
               <span className="text-slate-400 dark:text-slate-300 mr-2">
@@ -87,12 +55,31 @@ const MyCraftCard = () => {
             </ul>
           </li>
         </ul>
+        <div className="pb-4 pt-2 flex items-center justify-between">
+          <p className="text-slate-900 dark:text-slate-300  font-semibold">
+            Customization
+          </p>
 
-        <div className="pt-6">
+          <p
+            className={`text-base font-medium ${
+              isStock
+                ? "text-green-500 hover:text-slate-900  dark:text-slate-200 dark:hover:text-green-600"
+                : "text-yellow-500 hover:text-blue-400 dark:text-slate-900 dark:hover:text-yellow-500"
+            }`}>
+            {stockStatus}
+          </p>
+        </div>
+
+        <div className=" flex justify-between">
           <Link
-            to={`/craftdetails/${id}`}
-            className="btn text-base bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500 text-slate-900 rounded-md w-full">
-            View Details
+            to={`/update/${id}`}
+            className="btn text-base bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500 text-slate-900 rounded-md ">
+            Update
+          </Link>
+          <Link
+            to={`/delete/${id}`}
+            className="btn text-base bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500 text-slate-900 rounded-md ">
+            Delete
           </Link>
         </div>
       </div>

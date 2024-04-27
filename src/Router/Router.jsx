@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/update-craft/:id",
+        path: "/update/:id",
         element: <UpdateCraftItem />,
       },
     ],
