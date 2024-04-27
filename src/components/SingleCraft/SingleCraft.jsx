@@ -12,7 +12,6 @@ const SingleCraft = ({ item }) => {
   if (isStock === "Made to Order") {
     setIsStock(false);
   }
-  console.log(isStock);
 
   return (
     <div

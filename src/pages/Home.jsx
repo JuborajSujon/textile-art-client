@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
 import ListingCategories from "./../components/ListingCategories/ListingCategories";
 import CraftItem from "../components/CraftItem/CraftItem";
+import AIChat from "../components/AIChat/AIChat";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HeroSlider />
       <ListingCategories />
       <CraftItem />
+      <AIChat />
     </div>
   );
 };
