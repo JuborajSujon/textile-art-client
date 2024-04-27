@@ -80,7 +80,7 @@ const HeroSlider = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="relative h-[70vh] w-full bg-[url('https://i.ibb.co/wRv62Nf/Hero1.jpg')] bg-no-repeat bg-cover flex items-center bg-center">
+        <div className="relative h-[70vh] w-full bg-[url('https://i.ibb.co/943YpPH/hero4.jpg')] bg-no-repeat bg-cover flex items-center bg-center">
           <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto relative">
             <div className="grid grid-cols-1">
