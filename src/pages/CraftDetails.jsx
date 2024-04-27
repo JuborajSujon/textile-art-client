@@ -6,6 +6,7 @@ import { BsFiletypeDoc } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 const CraftDetails = () => {
+  // ensue that the page scrolls to the top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

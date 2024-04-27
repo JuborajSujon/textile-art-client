@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { BsArrowRight } from "react-icons/bs";
 
 const Terms = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Helmet>
