@@ -8,6 +8,7 @@ import ErrorPage from "./../pages/ErrorPage";
 import AllCraft from "../pages/AllCraft";
 import CraftDetails from "../pages/CraftDetails";
 import AddCraftItem from "../pages/AddCraftItem";
+import UpdateCraftItem from "../pages/UpdateCraftItem";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/craftdetails/:id",
         element: <CraftDetails />,
+      },
+
+      {
+        path: "/update-craft/:id",
+        element: <UpdateCraftItem />,
       },
     ],
   },
