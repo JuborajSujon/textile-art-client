@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import Terms from "../pages/Terms";
 import ErrorPage from "./../pages/ErrorPage";
+import AllCraft from "../pages/AllCraft";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
 
       {
         path: "/all-art-craft",
-        element: <div>All Art & Craft Items</div>,
+        element: <AllCraft />,
       },
 
       {
