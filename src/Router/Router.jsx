@@ -9,6 +9,7 @@ import AllCraft from "../pages/AllCraft";
 import CraftDetails from "../pages/CraftDetails";
 import AddCraftItem from "../pages/AddCraftItem";
 import UpdateCraftItem from "../pages/UpdateCraftItem";
+import MyCraftList from "../pages/MyCraftList";
 
 const router = createBrowserRouter([
   {
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
 
       {
         path: "/my-craft-list",
-        element: <div>My Art & Craft List</div>,
+        element: <MyCraftList />,
       },
 
       {

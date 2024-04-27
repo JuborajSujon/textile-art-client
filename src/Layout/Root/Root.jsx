@@ -12,7 +12,7 @@ const Root = () => {
       <div className="min-h-[calc(100vh-110px)] overflow-x-hidden ">
         <Outlet />
       </div>
-      <div className="sm:hidden fixed top-1/4 left-2 rotate-90 z-50">
+      <div className="sm:hidden fixed top-1/4 left-2 z-50">
         <ThemeController />
       </div>
       <Footer />
