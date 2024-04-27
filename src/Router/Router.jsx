@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Terms from "../pages/Terms";
 import ErrorPage from "./../pages/ErrorPage";
 import AllCraft from "../pages/AllCraft";
+import CraftDetails from "../pages/CraftDetails";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/my-craft-list",
         element: <div>My Art & Craft List</div>,
+      },
+
+      {
+        path: "/craftdetails/:id",
+        element: <CraftDetails />,
       },
     ],
   },
