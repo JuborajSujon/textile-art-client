@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import CraftItem from "../components/CraftItem/CraftItem";
+import AllArtCraft from "../components/AllArtCraft/AllArtCraft";
 
 const AllCraft = () => {
   return (
-    <div className="pb-20">
+    <div className="pt-20 sm:pt-10 pb-20">
       <Helmet>
         <title>Textile Art | All Art & Craft</title>
       </Helmet>
 
-      <CraftItem />
+      <AllArtCraft />
     </div>
   );
 };

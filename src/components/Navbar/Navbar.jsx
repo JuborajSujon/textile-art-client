@@ -129,7 +129,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal text-lg font-semibold px-1 space-x-2">
+        <ul className="menu menu-horizontal text-sm font-semibold px-1 space-x-2">
           {navList}
         </ul>
       </div>
