@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-const SingleCraft = ({ item }) => {
+const MyCraftCard = () => {
+  const item = {
+    id: 1,
+    stockStatus: "In Stock",
+  };
   const { id, stockStatus } = item;
   const [isStock, setIsStock] = useState(stockStatus);
 
@@ -12,7 +16,6 @@ const SingleCraft = ({ item }) => {
   if (isStock === "Made to Order") {
     setIsStock(false);
   }
-
   return (
     <div className="group rounded-lg bg-white dark:bg-slate-900 shadow hover:shadow-md dark:hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden  m-3 flex flex-col">
       <div className="relative h-64">
@@ -97,8 +100,8 @@ const SingleCraft = ({ item }) => {
   );
 };
 
-SingleCraft.propTypes = {
+MyCraftCard.propTypes = {
   item: PropTypes.object,
 };
 
-export default SingleCraft;
+export default MyCraftCard;
