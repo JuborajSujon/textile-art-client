@@ -4,6 +4,7 @@ import ListingCategories from "./../components/ListingCategories/ListingCategori
 import CraftItem from "../components/CraftItem/CraftItem";
 import AIChat from "../components/AIChat/AIChat";
 import AnimatedNumber from "./../components/AnimatedNumber/AnimatedNumber";
+import ClientReview from "../components/ClientReview/ClientReview";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <ListingCategories />
       <CraftItem />
       <AnimatedNumber />
+      <ClientReview />
       <AIChat />
     </div>
   );

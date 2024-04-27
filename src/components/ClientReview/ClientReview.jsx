@@ -50,9 +50,9 @@ const ClientReview = () => {
             <SwiperSlide>
               <div className="text-center mx-3 relative">
                 <p className="text-lg text-slate-400 italic">
-                  {'"'} Hously made the processes so easy. Hously instantly
-                  increased the amount of interest and ultimately saved us over
-                  $10,000.{'"'}
+                  {'"'} Textile art made the processes so easy. Textile art
+                  instantly increased the amount of interest and ultimately
+                  saved us over $10,000.{'"'}
                 </p>
 
                 <div className="text-center mt-5">
@@ -80,16 +80,18 @@ const ClientReview = () => {
                     alt=""
                   />
                   <h6 className="mt-2 fw-semibold">Christa Smith</h6>
-                  <span className="text-slate-400 text-sm">Manager</span>
+                  <span className="text-slate-400 text-sm">
+                    Quilting Artist{" "}
+                  </span>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="text-center mx-3 relative">
                 <p className="text-lg text-slate-400 italic">
-                  {'"'}I highly recommend Hously as the new way to sell your
-                  home "by owner". My home sold in 24 hours for the asking
-                  price. Best $400 you could spend to sell your home.
+                  {'"'}I highly recommend Textile art as the new way to sell
+                  your craft "by owner". My craft sold in 24 hours for the
+                  asking price. Best $400 you could spend to sell your home.
                   {'"'}
                 </p>
 
@@ -118,16 +120,18 @@ const ClientReview = () => {
                     alt=""
                   />
                   <h6 className="mt-2 fw-semibold">Jenifer Smith</h6>
-                  <span className="text-slate-400 text-sm">Sr. Manager</span>
+                  <span className="text-slate-400 text-sm">
+                    Beadwork Artist
+                  </span>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="text-center mx-3 relative">
                 <p className="text-lg text-slate-400 italic">
-                  {'"'}My favorite part about selling my home myself was that we
-                  got to meet and get to know the people personally. This made
-                  it so much more enjoyable!{'"'}
+                  {'"'}My favorite part about selling my craft myself was that
+                  we got to meet and get to know the people personally. This
+                  made it so much more enjoyable!{'"'}
                 </p>
 
                 <div className="text-center mt-5">
@@ -155,7 +159,7 @@ const ClientReview = () => {
                     alt=""
                   />
                   <h6 className="mt-2 fw-semibold">John Smith</h6>
-                  <span className="text-slate-400 text-sm">CEO</span>
+                  <span className="text-slate-400 text-sm">Tie-Dye Artist</span>
                 </div>
               </div>
             </SwiperSlide>
@@ -191,15 +195,15 @@ const ClientReview = () => {
                     alt=""
                   />
                   <h6 className="mt-2 fw-semibold">Andy Smith</h6>
-                  <span className="text-slate-400 text-sm">Director</span>
+                  <span className="text-slate-400 text-sm">Crochet Artist</span>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="text-center mx-3 relative">
                 <p className="text-lg text-slate-400 italic">
-                  {'"'}Hously made selling my home easy and stress free. They
-                  went above and beyond what is expected.{'"'}
+                  {'"'}Textile art made selling my craft easy and stress free.
+                  They went above and beyond what is expected.{'"'}
                 </p>
 
                 <div className="text-center mt-5">
@@ -227,9 +231,7 @@ const ClientReview = () => {
                     alt=""
                   />
                   <h6 className="mt-2 fw-semibold">Jacob Smith</h6>
-                  <span className="text-slate-400 text-sm">
-                    General Manager
-                  </span>
+                  <span className="text-slate-400 text-sm">Macrame Artist</span>
                 </div>
               </div>
             </SwiperSlide>
@@ -265,7 +267,9 @@ const ClientReview = () => {
                     alt=""
                   />
                   <h6 className="mt-2 fw-semibold">Sara Smith</h6>
-                  <span className="text-slate-400 text-sm">Officer</span>
+                  <span className="text-slate-400 text-sm">
+                    Embroidery Artist
+                  </span>
                 </div>
               </div>
             </SwiperSlide>
