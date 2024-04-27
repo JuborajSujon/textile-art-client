@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
 import ListingCategories from "./../components/ListingCategories/ListingCategories";
+import CraftItem from "../components/CraftItem/CraftItem";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       </Helmet>
       <HeroSlider />
       <ListingCategories />
+      <CraftItem />
     </div>
   );
 };

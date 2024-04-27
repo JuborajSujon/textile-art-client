@@ -13,7 +13,7 @@ const SectionTitle = ({ title, desctiption }) => {
       <p
         data-aos="zoom-in"
         data-aos-duration="700"
-        className="text-slate-400 dark:text-slate-300 max-w-xl mx-auto ">
+        className="text-slate-600 dark:text-slate-300 max-w-xl mx-auto font-chakraPetch">
         {desctiption}
       </p>
     </div>
