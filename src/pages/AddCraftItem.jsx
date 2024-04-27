@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
+import useAuth from "../customHook/useAuth";
 
 const AddCraftItem = () => {
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -17,9 +19,31 @@ const AddCraftItem = () => {
   }, []);
 
   const onSubmit = (data) => {
-    console.log(data);
-    toast.success("Craft Item Added Successfully");
-    reset();
+    const newData = {
+      ...data,
+      userEmail: user?.email,
+      userName: user?.displayName,
+    };
+    console.log(newData);
+
+    // send data to server
+    fetch("http://localhost:5000/addProduct", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((getData) => {
+        console.log(getData);
+        if (getData.acknowledged) {
+          toast.success("Craft Item Added Successfully", {
+            autoClose: 2000,
+          });
+          reset();
+        }
+      });
   };
   return (
     <>
@@ -50,13 +74,13 @@ const AddCraftItem = () => {
                           Name
                         </label>
                         <input
-                          {...register("name", { required: true })}
+                          {...register("item_name", { required: true })}
                           type="text"
                           id="form-name"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Name"
                         />
-                        {errors.name && (
+                        {errors.item_name && (
                           <p className="text-red-500">
                             Please enter a valid name
                           </p>
@@ -69,13 +93,13 @@ const AddCraftItem = () => {
                           Photo URL
                         </label>
                         <input
-                          {...register("photo", { required: true })}
+                          {...register("image", { required: true })}
                           type="text"
                           id="form-photo"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Photo URL"
                         />
-                        {errors.photo && (
+                        {errors.image && (
                           <p className="text-red-500">
                             Please enter a valid photo url
                           </p>
@@ -88,7 +112,7 @@ const AddCraftItem = () => {
                           Subcategory Name
                         </label>
                         <select
-                          {...register("subName", { required: true })}
+                          {...register("subcategory_name", { required: true })}
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                           <option value="" disabled>
                             Category Name
@@ -101,7 +125,7 @@ const AddCraftItem = () => {
                           <option value="beadwork">Beadwork</option>
                           <option value="macrame">Macrame</option>
                         </select>
-                        {errors.name && (
+                        {errors.subcategory_name && (
                           <p className="text-red-500">
                             Please enter a valid subcategory name
                           </p>
@@ -114,13 +138,13 @@ const AddCraftItem = () => {
                           Short Description
                         </label>
                         <input
-                          {...register("description", { required: true })}
+                          {...register("short_description", { required: true })}
                           type="text"
                           id="form-description"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Short Description"
                         />
-                        {errors.name && (
+                        {errors.short_description && (
                           <p className="text-red-500">
                             Please enter a valid short description
                           </p>
@@ -139,7 +163,7 @@ const AddCraftItem = () => {
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Price in dollar"
                         />
-                        {errors.name && (
+                        {errors.price && (
                           <p className="text-red-500">
                             Please enter a valid price
                           </p>
@@ -158,7 +182,7 @@ const AddCraftItem = () => {
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Rating"
                         />
-                        {errors.name && (
+                        {errors.rating && (
                           <p className="text-red-500">
                             Please enter a valid rating
                           </p>
@@ -171,13 +195,13 @@ const AddCraftItem = () => {
                           Processing Time
                         </label>
                         <input
-                          {...register("time", { required: true })}
+                          {...register("processing_time", { required: true })}
                           type="text"
                           id="form-rating"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Processing Time"
                         />
-                        {errors.name && (
+                        {errors.processing_time && (
                           <p className="text-red-500">
                             Please enter a valid processing time
                           </p>

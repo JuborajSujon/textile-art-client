@@ -62,7 +62,7 @@ const Login = () => {
       <Helmet>
         <title>Textile Art | Login</title>
       </Helmet>
-      <section className="relative w-full min-h-screen dark:bg-slate-900 h-full py-40  bg-[url(https://i.ibb.co/mBBHggp/bg-login-final.png)] bg-no-repeat bg-cover bg-center ">
+      <section className="relative w-full min-h-screen dark:bg-slate-900 h-full py-40 bg-[url(https://i.ibb.co/mBBHggp/bg-login-final.png)] bg-no-repeat bg-cover bg-center ">
         <div className="container mx-auto px-4 h-full">
           <div className="flex content-center items-center justify-center h-full">
             <div className="w-full lg:w-6/12 px-4">

@@ -6,7 +6,7 @@ import ThemeController from "../../components/ThemeController/ThemeController";
 const Root = () => {
   return (
     <div className="font-raleway">
-      <div className="sm:h-[60px] md:h-[76px]">
+      <div className="sm:h-[60px] md:h-[67px]">
         <Navbar />
       </div>
       <div className="min-h-[calc(100vh-110px)] overflow-x-hidden ">
