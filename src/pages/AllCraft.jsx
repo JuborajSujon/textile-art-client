@@ -21,7 +21,6 @@ const AllCraft = () => {
       });
   }, []);
 
-  console.log(loading);
   return (
     <div className="pt-20 sm:pt-10 pb-20">
       <Helmet>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import PropTypes from "prop-types";
+import GeneralLoading from "../GeneralLoading/GeneralLoading";
 
 const AllArtCraft = ({ loadedData, loading }) => {
   return (
@@ -26,9 +27,7 @@ const AllArtCraft = ({ loadedData, loading }) => {
             {loading && (
               <tr>
                 <td colSpan="5" className="text-center">
-                  <p className="text-center font-bold text-red-500">
-                    Loading...
-                  </p>
+                  <GeneralLoading />
                 </td>
               </tr>
             )}
