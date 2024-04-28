@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
 import GeneralLoading from "../GeneralLoading/GeneralLoading";
+import { toast } from "react-toastify";
 
 const ListingCategories = () => {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,12 @@ const ListingCategories = () => {
       .then((data) => {
         setCategories(data);
         setLoading(false);
+      })
+      .catch((error) => {
+        toast.error("Data Loading Failed. Try Again.", {
+          autoClose: 2000,
+        });
+        console.log(error.message);
       });
   }, []);
 
