@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import AllArtCraft from "../components/AllArtCraft/AllArtCraft";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const AllCraft = () => {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,12 @@ const AllCraft = () => {
       .then((data) => {
         setLoadedData(data);
         setLoading(false);
+      })
+      .catch((error) => {
+        toast.error("Data Loading Failed. Try Again.", {
+          autoClose: 2000,
+        });
+        console.log(error.message);
       });
   }, []);
 
