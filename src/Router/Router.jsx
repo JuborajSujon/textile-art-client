@@ -11,6 +11,7 @@ import AddCraftItem from "../pages/AddCraftItem";
 import UpdateCraftItem from "../pages/UpdateCraftItem";
 import MyCraftList from "../pages/MyCraftList";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import SpecificCategoryCarft from "../pages/SpecificCategoryCarft";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/specific-category/:category",
+        element: <SpecificCategoryCarft />,
       },
       {
         path: "/login",
