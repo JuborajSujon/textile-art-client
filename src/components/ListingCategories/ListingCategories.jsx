@@ -32,7 +32,8 @@ const ListingCategories = () => {
       {loading && <GeneralLoading />}
       <div className="grid  md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 mx-4 md:gap-[30px] gap-3">
         {categories.map((category) => (
-          <div
+          <Link
+            to={`/specific-category/${category.subcategory_name}`}
             key={category._id}
             className="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 flex flex-col justify-between">
             <img
@@ -41,17 +42,14 @@ const ListingCategories = () => {
               alt={category.subcategory_name}
             />
             <div className="p-4">
-              <Link
-                to="https://i.ibb.co/BPY7BXN/penthouse.jpg"
-                target="_blank"
-                className="text-base lg:text-lg font-medium hover:text-green-600">
+              <h3 className="text-base lg:text-lg font-medium hover:text-green-600">
                 {category.subcategory_name.toUpperCase()}
-              </Link>
+              </h3>
               <p className="text-slate-400 text-sm mt-1">
                 {category.total_post} Listings
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -11,6 +11,7 @@ const SingleCraft = ({ item }) => {
     rating,
     short_description,
     subcategory_name,
+    processing_time,
     stockStatus,
   } = item;
 
@@ -47,6 +48,9 @@ const SingleCraft = ({ item }) => {
             </p>
             <p className="text-slate-900 dark:text-slate-300  font-semibold">
               Customization : {customization}
+            </p>
+            <p className="text-slate-900 dark:text-slate-300  font-semibold">
+              Processing Time : {processing_time}
             </p>
           </div>
           <p
