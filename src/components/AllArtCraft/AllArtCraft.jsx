@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import PropTypes from "prop-types";
 
-const AllArtCraft = ({ loadedData }) => {
-  const id = 1;
+const AllArtCraft = ({ loadedData, loading }) => {
   return (
     <div>
       <SectionTitle
@@ -24,6 +23,15 @@ const AllArtCraft = ({ loadedData }) => {
           </thead>
           <tbody>
             {/* row 1 */}
+            {loading && (
+              <tr>
+                <td colSpan="5" className="text-center">
+                  <p className="text-center font-bold text-red-500">
+                    Loading...
+                  </p>
+                </td>
+              </tr>
+            )}
             {loadedData.map((data) => (
               <tr key={data._id}>
                 <td>
@@ -55,6 +63,7 @@ const AllArtCraft = ({ loadedData }) => {
 
 AllArtCraft.propTypes = {
   loadedData: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default AllArtCraft;

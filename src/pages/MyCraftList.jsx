@@ -38,7 +38,7 @@ const MyCraftList = () => {
   const handleChange = (event) => {
     setCustomization(event.target.value);
   };
-  console.log(loading);
+
   return (
     <div className="pt-20 sm:pt-4 pb-20">
       <div className="text-center">
