@@ -27,6 +27,9 @@ const MyCraftCard = ({ product }) => {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
               window.location.reload();
             }
+          })
+          .catch((err) => {
+            Swal.fire("Error!", err.message, "error");
           });
       }
     });
