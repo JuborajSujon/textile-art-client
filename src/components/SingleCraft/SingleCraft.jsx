@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const SingleCraft = ({ item }) => {
@@ -11,6 +10,7 @@ const SingleCraft = ({ item }) => {
     price,
     rating,
     short_description,
+    subcategory_name,
     stockStatus,
   } = item;
 
@@ -43,7 +43,7 @@ const SingleCraft = ({ item }) => {
         <div className="pb-4 flex items-center justify-between">
           <div>
             <p className="text-slate-900 dark:text-slate-300  font-semibold">
-              Subcategory Name
+              Subcategory : {subcategory_name}
             </p>
             <p className="text-slate-900 dark:text-slate-300  font-semibold">
               Customization : {customization}

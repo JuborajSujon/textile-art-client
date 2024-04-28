@@ -3,9 +3,22 @@ import { FaRegEye, FaRegCircleCheck } from "react-icons/fa6";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import { BsFiletypeDoc } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
 const CraftDetails = () => {
+  const loadedData = useLoaderData();
+  const {
+    _id,
+    item_name,
+    customization,
+    image,
+    price,
+    rating,
+    short_description,
+    processing_time,
+    subcategory_name,
+    stockStatus,
+  } = loadedData;
   // ensue that the page scrolls to the top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,8 +31,8 @@ const CraftDetails = () => {
             <div className="overflow-hidden w-full">
               <img
                 className="w-full max-h-[70vh] object-cover"
-                src="https://i.ibb.co/943YpPH/hero4.jpg"
-                alt=""
+                src={image}
+                alt={item_name}
               />
             </div>
             <div className="py-6">
@@ -43,7 +56,7 @@ const CraftDetails = () => {
             <div className="overflow-x-auto">
               <table className="table dark:text-slate-300">
                 <caption className="text-3xl font-bold text-slate-900 dark:text-slate-300">
-                  Products Specification
+                  General Products Specification
                 </caption>
                 <tbody>
                   {/* row 1 */}
@@ -98,18 +111,18 @@ const CraftDetails = () => {
         </div>
         <div className="space-y-6">
           <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-300">
-            Carroll Group
+            {item_name}
           </h1>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-300">
-            Kajsa, 2024
+            {subcategory_name.charAt(0).toUpperCase() +
+              subcategory_name.slice(1)}
           </h2>
 
           <div className="dark:text-slate-300 space-y-3">
-            <p className="font-bold">Made to Order</p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore
-              provident exercitationem consequuntur cumque vero nihil.
-            </p>
+            <p className="font-bold">Customization : {customization}</p>
+            <p className="font-bold">{stockStatus}</p>
+            <p className="font-bold">Processing time : {processing_time}</p>
+            <p>{short_description}</p>
             <ul>
               <li className="flex items-center gap-2">
                 <IoBagCheckOutline />
@@ -121,15 +134,20 @@ const CraftDetails = () => {
               </li>
             </ul>
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-300">
-            Price : $2000
-          </h2>
+          <div className="flex items-center justify-between pr-4">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-300">
+              Price : ${price}
+            </h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-300">
+              Rating : {rating}
+            </h2>
+          </div>
           <div className="text-center flex flex-col gap-4 justify-center items-center">
             <button className="btn bg-yellow-400 w-full   hover:text-slate-900 dark:text-slate-900 hover:bg-yellow-500 text-base">
               Purchase
             </button>
             <button className="btn bg-transparent border-2 border-yellow-400 w-full   hover:text-slate-900 hover:bg-yellow-500 text-base">
-              Make an Order
+              Make an Offer
             </button>
           </div>
 
@@ -200,7 +218,7 @@ const CraftDetails = () => {
         <div className="overflow-x-auto">
           <table className="table dark:text-slate-300">
             <caption className="text-3xl font-bold text-slate-900 dark:text-slate-300">
-              Products Specification
+              General Products Specification
             </caption>
             <tbody>
               {/* row 1 */}

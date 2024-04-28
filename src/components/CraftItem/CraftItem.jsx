@@ -9,7 +9,7 @@ const CraftItem = () => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
-        const newData = data.slice(0, 5);
+        const newData = data.slice(0, 6);
         setCrafts(newData);
       });
   }, []);
