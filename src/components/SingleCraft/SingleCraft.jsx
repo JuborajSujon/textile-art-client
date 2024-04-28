@@ -3,22 +3,25 @@ import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const SingleCraft = ({ item }) => {
-  const { id, stockStatus } = item;
-  const [isStock, setIsStock] = useState(stockStatus);
+  const {
+    _id,
+    item_name,
+    customization,
+    image,
+    price,
+    rating,
+    short_description,
+    stockStatus,
+  } = item;
 
-  if (isStock === "In Stock") {
-    setIsStock(true);
-  }
-  if (isStock === "Made to Order") {
-    setIsStock(false);
-  }
+  let newStock = stockStatus.toLowerCase();
 
   return (
     <div className="group rounded-lg bg-white dark:bg-slate-900 shadow hover:shadow-md dark:hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden  m-3 flex flex-col">
       <div className="relative h-64">
         <img
           className="w-full h-full object-cover group-hover:scale-105 duration-300"
-          src="https://i.ibb.co/Hqr549Y/Hero2.jpg"
+          src={image}
           alt="Craft Item"
         />
 
@@ -34,7 +37,7 @@ const SingleCraft = ({ item }) => {
           <h3
             className="text-xl font-medium text-slate-900
                  dark:text-slate-200 dark:hover:text-yellow-500">
-            Item Title
+            {item_name}
           </h3>
         </div>
         <div className="pb-4 flex items-center justify-between">
@@ -43,12 +46,12 @@ const SingleCraft = ({ item }) => {
               Subcategory Name
             </p>
             <p className="text-slate-900 dark:text-slate-300  font-semibold">
-              Customization
+              Customization : {customization}
             </p>
           </div>
           <p
             className={`text-base font-medium ${
-              isStock
+              newStock === "in stock"
                 ? "text-green-500 hover:text-slate-900  dark:text-slate-200 dark:hover:text-green-600"
                 : "text-yellow-500 hover:text-blue-400 dark:text-slate-900 dark:hover:text-yellow-500"
             }`}>
@@ -58,18 +61,17 @@ const SingleCraft = ({ item }) => {
 
         <div className="pb-4">
           <p className="text-slate-600 dark:text-slate-300 font-chakraPetch">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {short_description}
           </p>
         </div>
 
         <ul className="pt-6 flex justify-between items-center list-none">
           <li>
-            <p className="text-lg dark:text-slate-300 font-medium">
+            <p className="text-lg dark:text-slate-300 font-chakraPetch font-medium">
               <span className="text-slate-400 dark:text-slate-300 mr-2">
                 Price:
               </span>
-              $2000
+              ${price}
             </p>
           </li>
 
@@ -77,9 +79,9 @@ const SingleCraft = ({ item }) => {
             <ul className="text-lg font-medium  list-none">
               <li
                 className="inline text-slate-900 
-              dark:text-slate-300 ">
+              dark:text-slate-300 font-chakraPetch ">
                 <span className="text-slate-400 mr-2">Rating:</span>
-                5.0
+                {rating}
               </li>
             </ul>
           </li>
@@ -87,7 +89,7 @@ const SingleCraft = ({ item }) => {
 
         <div className="pt-6">
           <Link
-            to={`/craftdetails/${id}`}
+            to={`/craftdetails/${_id}`}
             className="btn text-base bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500 text-slate-900 rounded-md w-full">
             View Details
           </Link>
