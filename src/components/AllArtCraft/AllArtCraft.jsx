@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import PropTypes from "prop-types";
 
-const AllArtCraft = () => {
+const AllArtCraft = ({ loadedData }) => {
   const id = 1;
   return (
     <div>
@@ -16,56 +17,44 @@ const AllArtCraft = () => {
             <tr className="text-base">
               <th>Photo</th>
               <th>Item Name</th>
+              <th>Subcategorey</th>
               <th>Price</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <td>
-                <div className="avatar">
-                  <div className="mask w-24 h-24">
-                    <img src="https://i.ibb.co/943YpPH/hero4.jpg" alt="name" />
+            {loadedData.map((data) => (
+              <tr key={data._id}>
+                <td>
+                  <div className="avatar">
+                    <div className="mask w-24 h-24">
+                      <img src={data.image} alt={data.item_name} />
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>Carroll Group</td>
-              <td>$2000</td>
-              <td>Made to Order</td>
-              <th>
-                <Link
-                  to={`/craftdetails/${id}`}
-                  className="btn bg-yellow-400 btn-xs h-10 sm:btn-sm">
-                  View Details
-                </Link>
-              </th>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <td>
-                <div className="avatar">
-                  <div className="mask w-24 h-24">
-                    <img src="https://i.ibb.co/943YpPH/hero4.jpg" alt="name" />
-                  </div>
-                </div>
-              </td>
-              <td>Carroll Group</td>
-              <td>$2000</td>
-              <td>Made to Order</td>
-              <th>
-                <Link
-                  to={`/craftdetails/${id}`}
-                  className="btn bg-yellow-400 h-10 btn-xs sm:btn-sm">
-                  View Details
-                </Link>
-              </th>
-            </tr>
+                </td>
+                <td>{data.item_name}</td>
+                <td>{data.subcategory_name}</td>
+                <td>{data.price}</td>
+                <td>{data.stockStatus}</td>
+                <th>
+                  <Link
+                    to={`/craftdetails/${data._id}`}
+                    className="btn bg-yellow-400 btn-xs h-10 sm:btn-sm">
+                    View Details
+                  </Link>
+                </th>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
     </div>
   );
+};
+
+AllArtCraft.propTypes = {
+  loadedData: PropTypes.array,
 };
 
 export default AllArtCraft;
