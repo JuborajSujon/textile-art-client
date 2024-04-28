@@ -2,12 +2,30 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateCraftItem = () => {
+  const loaded = useLoaderData();
+
+  const {
+    _id,
+    image,
+    item_name,
+    price,
+    rating,
+    customization,
+    stockStatus,
+    processing_time,
+    short_description,
+    subcategory_name,
+    userEmail,
+    userName,
+  } = loaded;
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -16,10 +34,53 @@ const UpdateCraftItem = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    setValue("image", image);
+    setValue("item_name", item_name);
+    setValue("price", price);
+    setValue("rating", rating);
+    setValue("customization", customization);
+    setValue("stockStatus", stockStatus);
+    setValue("processing_time", processing_time);
+    setValue("short_description", short_description);
+    setValue("subcategory_name", subcategory_name);
+  }, [
+    setValue,
+    image,
+    item_name,
+    price,
+    rating,
+    customization,
+    stockStatus,
+    processing_time,
+    short_description,
+    subcategory_name,
+  ]);
+
   const onSubmit = (data) => {
-    console.log(data);
-    toast.success("Craft Item Added Successfully");
-    reset();
+    const newData = {
+      ...data,
+      userEmail: userEmail,
+      userName: userName,
+    };
+
+    fetch(`http://localhost:5000/updateProduct/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((getData) => {
+        console.log(getData);
+        if (getData.acknowledged) {
+          toast.success("Craft Item Updated Successfully", {
+            autoClose: 2000,
+          });
+          reset();
+        }
+      });
   };
   return (
     <>
@@ -50,7 +111,7 @@ const UpdateCraftItem = () => {
                           Name
                         </label>
                         <input
-                          {...register("name", { required: true })}
+                          {...register("item_name", { required: true })}
                           type="text"
                           id="form-name"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -69,7 +130,7 @@ const UpdateCraftItem = () => {
                           Photo URL
                         </label>
                         <input
-                          {...register("photo", { required: true })}
+                          {...register("image", { required: true })}
                           type="text"
                           id="form-photo"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -88,11 +149,8 @@ const UpdateCraftItem = () => {
                           Subcategory Name
                         </label>
                         <select
-                          {...register("subName", { required: true })}
+                          {...register("subcategory_name", { required: true })}
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                          <option value="" disabled>
-                            Category Name
-                          </option>
                           <option value="embroidery">Embroidery</option>
                           <option value="kniting & crocheting">
                             Kniting & Crocheting
@@ -114,7 +172,7 @@ const UpdateCraftItem = () => {
                           Short Description
                         </label>
                         <input
-                          {...register("description", { required: true })}
+                          {...register("short_description", { required: true })}
                           type="text"
                           id="form-description"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -136,7 +194,7 @@ const UpdateCraftItem = () => {
                           {...register("price", { required: true })}
                           type="number"
                           id="form-price"
-                          className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Price in dollar"
                         />
                         {errors.name && (
@@ -153,9 +211,9 @@ const UpdateCraftItem = () => {
                         </label>
                         <input
                           {...register("rating", { required: true })}
-                          type="number"
+                          type="text"
                           id="form-rating"
-                          className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Rating"
                         />
                         {errors.name && (
@@ -171,10 +229,10 @@ const UpdateCraftItem = () => {
                           Processing Time
                         </label>
                         <input
-                          {...register("time", { required: true })}
+                          {...register("processing_time", { required: true })}
                           type="text"
                           id="form-rating"
-                          className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Processing Time"
                         />
                         {errors.name && (
@@ -221,7 +279,7 @@ const UpdateCraftItem = () => {
                       <button
                         className="bg-slate-800 text-white  hover:bg-slate-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none border-2 border-transparent hover:border-2 hover:border-yellow-400 focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                         type="submit">
-                        Add To Craft
+                        Update
                       </button>
                     </div>
                   </form>

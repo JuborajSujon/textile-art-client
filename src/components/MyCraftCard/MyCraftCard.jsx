@@ -1,28 +1,39 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
-import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-const MyCraftCard = () => {
-  const item = {
-    id: 1,
-    stockStatus: "In Stock",
-  };
-  const { id, stockStatus } = item;
-  const [isStock, setIsStock] = useState(stockStatus);
+import Swal from "sweetalert2";
+const MyCraftCard = ({ product }) => {
+  const { _id, image, item_name, price, rating, customization, stockStatus } =
+    product;
 
-  if (isStock === "In Stock") {
-    setIsStock(true);
-  }
-  if (isStock === "Made to Order") {
-    setIsStock(false);
-  }
+  const newStockStatus = stockStatus.toLowerCase();
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
+
   return (
     <div className="group rounded-lg bg-white dark:bg-slate-900 shadow hover:shadow-md dark:hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden  m-3 flex flex-col">
       <div className="relative h-64">
         <img
           className="w-full h-full object-cover group-hover:scale-105 duration-300"
-          src="https://i.ibb.co/Hqr549Y/Hero2.jpg"
-          alt="Craft Item"
+          src={image}
+          alt={item_name}
         />
       </div>
 
@@ -31,7 +42,7 @@ const MyCraftCard = () => {
           <h3
             className="text-xl font-medium text-slate-900
                  dark:text-slate-200 dark:hover:text-yellow-500">
-            Item Title
+            {item_name}
           </h3>
         </div>
         <ul className=" flex justify-between items-center list-none">
@@ -40,7 +51,7 @@ const MyCraftCard = () => {
               <span className="text-slate-400 dark:text-slate-300 mr-2">
                 Price:
               </span>
-              $2000
+              $<span className="font-chakraPetch">{price}</span>
             </p>
           </li>
 
@@ -50,19 +61,19 @@ const MyCraftCard = () => {
                 className="inline text-slate-900 
               dark:text-slate-300 ">
                 <span className="text-slate-400 mr-2">Rating:</span>
-                5.0
+                <span className="font-chakraPetch">{rating}</span>
               </li>
             </ul>
           </li>
         </ul>
         <div className="pb-4 pt-2 flex items-center justify-between">
           <p className="text-slate-900 dark:text-slate-300  font-semibold">
-            Customization
+            Customization : {customization}
           </p>
 
           <p
             className={`text-base font-medium ${
-              isStock
+              newStockStatus === "in stock"
                 ? "text-green-500 hover:text-slate-900  dark:text-slate-200 dark:hover:text-green-600"
                 : "text-yellow-500 hover:text-blue-400 dark:text-slate-900 dark:hover:text-yellow-500"
             }`}>
@@ -72,12 +83,14 @@ const MyCraftCard = () => {
 
         <div className=" flex justify-between">
           <Link
-            to={`/update/${id}`}
+            to={`/update/${_id}`}
             className="btn text-base bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500 text-slate-900 rounded-md ">
             Update
           </Link>
           <Link
-            to={`/delete/${id}`}
+            onClick={() => {
+              handleDelete(_id);
+            }}
             className="btn text-base bg-yellow-400 hover:bg-yellow-500 border-yellow-400 hover:border-yellow-500 text-slate-900 rounded-md ">
             Delete
           </Link>
@@ -88,7 +101,7 @@ const MyCraftCard = () => {
 };
 
 MyCraftCard.propTypes = {
-  item: PropTypes.object,
+  product: PropTypes.object,
 };
 
 export default MyCraftCard;

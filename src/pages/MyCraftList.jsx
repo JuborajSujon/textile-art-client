@@ -1,16 +1,40 @@
 import { useEffect, useState } from "react";
 import MyCraftCard from "../components/MyCraftCard/MyCraftCard";
+import useAuth from "../customHook/useAuth";
 
 const MyCraftList = () => {
+  const { user } = useAuth();
+
   const [customization, setCustomization] = useState("All");
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [myCraftList, setMyCraftList] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/userproducts/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (customization === "All") {
+          setProducts(data);
+        } else if (customization === "Yes") {
+          const yesProducts = data.filter(
+            (product) => product.customization === "Yes"
+          );
+          setProducts(yesProducts);
+        } else if (customization === "No") {
+          const noProducts = data.filter(
+            (product) => product.customization === "No"
+          );
+          setProducts(noProducts);
+        }
+      });
+  }, [user?.email, customization]);
+
   const handleChange = (event) => {
     setCustomization(event.target.value);
   };
+
   return (
     <div className="pt-20 sm:pt-4 pb-20">
       <div className="text-center">
@@ -42,13 +66,9 @@ const MyCraftList = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <MyCraftCard />
-        <MyCraftCard />
-        <MyCraftCard />
-        <MyCraftCard />
-        <MyCraftCard />
-        <MyCraftCard />
-        <MyCraftCard />
+        {products.map((product) => (
+          <MyCraftCard key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );
