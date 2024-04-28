@@ -17,13 +17,17 @@ const MyCraftCard = ({ product }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(id);
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your craft has been deleted.",
-          icon: "success",
-        });
+        fetch(`http://localhost:5000/productdelete/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              window.location.reload();
+            }
+          });
       }
     });
   };

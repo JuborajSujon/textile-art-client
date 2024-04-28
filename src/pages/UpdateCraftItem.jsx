@@ -74,7 +74,6 @@ const UpdateCraftItem = () => {
     })
       .then((res) => res.json())
       .then((getData) => {
-        console.log(getData);
         if (getData.acknowledged) {
           toast.success("Craft Item Updated Successfully", {
             autoClose: 2000,
@@ -82,6 +81,12 @@ const UpdateCraftItem = () => {
           navigate("/my-craft-list");
           reset();
         }
+      })
+      .catch((err) => {
+        toast.error("Craft Item Update Failed", {
+          autoClose: 2000,
+        });
+        console.log(err);
       });
   };
 

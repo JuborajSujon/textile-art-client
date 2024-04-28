@@ -24,7 +24,6 @@ const AddCraftItem = () => {
       userEmail: user?.email,
       userName: user?.displayName,
     };
-    console.log(newData);
 
     // send data to server
     fetch("http://localhost:5000/addProduct", {
@@ -36,13 +35,18 @@ const AddCraftItem = () => {
     })
       .then((res) => res.json())
       .then((getData) => {
-        console.log(getData);
         if (getData.acknowledged) {
           toast.success("Craft Item Added Successfully", {
             autoClose: 2000,
           });
           reset();
         }
+      })
+      .catch((err) => {
+        toast.error("Craft Item Added Failed", {
+          autoClose: 2000,
+        });
+        console.log(err.message);
       });
   };
   return (
@@ -177,7 +181,7 @@ const AddCraftItem = () => {
                         </label>
                         <input
                           {...register("rating", { required: true })}
-                          type="number"
+                          type="text"
                           id="form-rating"
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Rating"
