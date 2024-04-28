@@ -1,12 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import AllArtCraft from "../components/AllArtCraft/AllArtCraft";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 
 const AllCraft = () => {
   const [loading, setLoading] = useState(true);
   const [loadedData, setLoadedData] = useState([]);
-  // const loadedData = useLoaderData();
+
   // ensure that the new page starts at the top when navigating
   useEffect(() => {
     window.scrollTo(0, 0);
