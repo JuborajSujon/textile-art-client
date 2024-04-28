@@ -71,6 +71,13 @@ const MyCraftList = () => {
         </div>
       </div>
       {loading && <GeneralLoading />}
+      {!loading && products.length === 0 && (
+        <div className="text-center">
+          <h3 className="mb-4 text-xl md:text-3xl md:leading-normal leading-normal font-semibold dark:text-slate-200 ">
+            No Products Found, Please Add And Try Again!
+          </h3>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products?.map((product) => (
           <MyCraftCard key={product._id} product={product} />
