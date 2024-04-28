@@ -70,14 +70,11 @@ const MyCraftList = () => {
           </select>
         </div>
       </div>
+      {loading && <GeneralLoading />}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {loading ? (
-          <GeneralLoading />
-        ) : (
-          products?.map((product) => (
-            <MyCraftCard key={product._id} product={product} />
-          ))
-        )}
+        {products?.map((product) => (
+          <MyCraftCard key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );

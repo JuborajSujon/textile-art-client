@@ -17,6 +17,7 @@ const MyCraftCard = ({ product }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
+      console.log(id);
       if (result.isConfirmed) {
         Swal.fire({
           title: "Deleted!",
