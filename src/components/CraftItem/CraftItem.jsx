@@ -3,6 +3,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import SingleCraft from "../SingleCraft/SingleCraft";
 import { useEffect, useState } from "react";
 import GeneralLoading from "../GeneralLoading/GeneralLoading";
+import { toast } from "react-toastify";
 
 const CraftItem = () => {
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,12 @@ const CraftItem = () => {
         const newData = data.slice(0, 6);
         setCrafts(newData);
         setLoading(false);
+      })
+      .catch((err) => {
+        toast.error("Data Loading Failed. Try Again.", {
+          autoClose: 2000,
+        });
+        console.log(err.message);
       });
   }, []);
 
