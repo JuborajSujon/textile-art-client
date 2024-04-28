@@ -45,16 +45,18 @@ const Footer = () => {
             <div className="mb-10 lg:mb-8">
               <div className="grid grid-cols-2 gap-8">
                 <div className="">
-                  <h5 className="mb-5 font-bold text-white lg:mb-6">Company</h5>
+                  <h5 className="mb-5 font-bold text-white lg:mb-6">
+                    Contact Info
+                  </h5>
                   <ul>
+                    <li className="mb-3 hover:text-yellow-400">
+                      <Link to="/contact">Contact</Link>
+                    </li>
                     <li className="mb-3 hover:text-yellow-400">
                       <Link to="/about">About us</Link>
                     </li>
                     <li className="mb-3 hover:text-yellow-400">
                       <Link to="/faq">FAQ</Link>
-                    </li>
-                    <li className="mb-3 hover:text-yellow-400">
-                      <Link to="/contact">Contact</Link>
                     </li>
                   </ul>
                 </div>
@@ -103,7 +105,8 @@ const Footer = () => {
         </div>
         <div className="border-t border-light py-7">
           <div className="container text-center">
-            <p className="copyright">
+            <p>Copyright &copy; 2024. All Rights Reserved</p>
+            <p>
               Designed And Developed By{" "}
               <Link to="https://github.com/JuborajSujon">Juboraj Sujon</Link>
             </p>
