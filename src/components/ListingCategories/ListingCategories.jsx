@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
+import GeneralLoading from "../GeneralLoading/GeneralLoading";
 
 const ListingCategories = () => {
+  const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5000/categories")
       .then((res) => res.json())
-      .then((data) => setCategories(data));
+      .then((data) => {
+        setCategories(data);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -16,6 +22,7 @@ const ListingCategories = () => {
         title="Art & Craft Categories"
         desctiption="Explore the intricate stitches of embroidery, the cozy comfort of knitting and crocheting, the timeless charm of quilting, the shimmering beauty of beadwork, the vibrant hues of tie-dyeing, and the intricate knots of macrame."
       />
+      {loading && <GeneralLoading />}
       <div className="grid  md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 mx-4 md:gap-[30px] gap-3">
         {categories.map((category) => (
           <div
