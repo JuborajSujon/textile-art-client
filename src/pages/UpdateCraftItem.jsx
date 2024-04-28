@@ -2,10 +2,11 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateCraftItem = () => {
   const loaded = useLoaderData();
+  const navigate = useNavigate();
 
   const {
     _id,
@@ -78,10 +79,12 @@ const UpdateCraftItem = () => {
           toast.success("Craft Item Updated Successfully", {
             autoClose: 2000,
           });
+          navigate("/my-craft-list");
           reset();
         }
       });
   };
+
   return (
     <>
       <Helmet>

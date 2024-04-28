@@ -4,7 +4,7 @@ import useAuth from "../customHook/useAuth";
 
 const MyCraftList = () => {
   const { user } = useAuth();
-
+  const [loading, setLoading] = useState(true);
   const [customization, setCustomization] = useState("All");
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -12,21 +12,25 @@ const MyCraftList = () => {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`http://localhost:5000/userproducts/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (customization === "All") {
           setProducts(data);
+          setLoading(false);
         } else if (customization === "Yes") {
           const yesProducts = data.filter(
             (product) => product.customization === "Yes"
           );
           setProducts(yesProducts);
+          setLoading(false);
         } else if (customization === "No") {
           const noProducts = data.filter(
             (product) => product.customization === "No"
           );
           setProducts(noProducts);
+          setLoading(false);
         }
       });
   }, [user?.email, customization]);
@@ -34,7 +38,7 @@ const MyCraftList = () => {
   const handleChange = (event) => {
     setCustomization(event.target.value);
   };
-
+  console.log(loading);
   return (
     <div className="pt-20 sm:pt-4 pb-20">
       <div className="text-center">
@@ -66,9 +70,13 @@ const MyCraftList = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map((product) => (
-          <MyCraftCard key={product._id} product={product} />
-        ))}
+        {loading ? (
+          <p className="text-center font-bold text-red-500">Loading...</p>
+        ) : (
+          products?.map((product) => (
+            <MyCraftCard key={product._id} product={product} />
+          ))
+        )}
       </div>
     </div>
   );

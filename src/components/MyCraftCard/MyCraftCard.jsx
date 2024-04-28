@@ -20,7 +20,7 @@ const MyCraftCard = ({ product }) => {
       if (result.isConfirmed) {
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your craft has been deleted.",
           icon: "success",
         });
       }
