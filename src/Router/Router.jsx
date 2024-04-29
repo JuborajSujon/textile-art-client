@@ -12,6 +12,7 @@ import UpdateCraftItem from "../pages/UpdateCraftItem";
 import MyCraftList from "../pages/MyCraftList";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import SpecificCategoryCarft from "../pages/SpecificCategoryCarft";
+import OurTeamMember from "../pages/OurTeamMember";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path: "/terms",
         element: <Terms />,
+      },
+
+      {
+        path: "/team",
+        element: <OurTeamMember />,
       },
 
       {

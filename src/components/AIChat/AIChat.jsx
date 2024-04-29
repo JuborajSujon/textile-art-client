@@ -27,10 +27,10 @@ const AIChat = () => {
               {/* <img src="https://i.ibb.co/wcDd9Jh/aichat.png" alt="" /> */}
             </div>
             <div className="md:col-7 md:order-1 lg:col-6">
-              <h2 className="mb-2 text-2xl md:text-4xl font-extrabold">
+              <h2 className="mb-2 text-2xl md:text-4xl font-extrabold dark:text-slate-900">
                 Ready to meet your personal AI chat assistant?
               </h2>
-              <p className="mb-6 text-base md:text-lg">
+              <p className="mb-6 text-base md:text-lg dark:text-slate-700">
                 Take action now to make a difference! Whether it's supporting a
                 cause you're passionate about
               </p>
