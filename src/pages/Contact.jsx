@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import ContactFrom from "../components/ContactFrom/ContactFrom";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import GoogleMapContact from "./../components/GoogleMapContact/GoogleMapContact";
+import ContactDetails from "../components/ContactDetails/ContactDetails";
 
 const Contact = () => {
   return (
@@ -22,6 +23,7 @@ const Contact = () => {
       <ContactFrom />
 
       {/* contact details */}
+      <ContactDetails />
     </div>
   );
 };
