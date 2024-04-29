@@ -1,55 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AIChat from "../components/AIChat/AIChat";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const OurTeamMember = () => {
-  const teamMember = [
-    {
-      name: "Terry Henderson",
-      designation: "Product Marketer",
-      image: "https://i.ibb.co/XWS2FJN/terry.png",
-    },
-    {
-      name: "Grace Turner",
-      designation: "Sourcing Manager",
-      image: "https://i.ibb.co/rFdBkjn/grace.png",
-    },
-    {
-      name: "Ethan Mitchell",
-      designation: "Gallery Administrator",
-      image: "https://i.ibb.co/jV2yzqg/ethan.png",
-    },
-    {
-      name: "Ava Reynolds",
-      designation: "Gallery Photographer",
-      image: "https://i.ibb.co/Y2T7TS7/ava.png",
-    },
-    {
-      name: "Sophia Parker",
-      designation: "Gallery Technician",
-      image: "https://i.ibb.co/7NyhqJ5/sophia.png",
-    },
-    {
-      name: "Noah Anderson",
-      designation: "Gallery Curator",
-      image: "https://i.ibb.co/7pZLBzp/noah.png",
-    },
-    {
-      name: "Olivia Harper",
-      designation: "Gallery Attendant",
-      image: "https://i.ibb.co/jV2yzqg/ethan.png",
-    },
-    {
-      name: "Benjamin Clarke",
-      designation: "Gallery Contemporary",
-      image: "https://i.ibb.co/ZWZdxSv/ben.png",
-    },
-    {
-      name: "Liam Sullivan",
-      designation: "Gallery Sales",
-      image: "https://i.ibb.co/gVM9QKC/olivia.png",
-    },
-  ];
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/teamMember")
+      .then((res) => res.json())
+      .then((data) => setTeamMembers(data))
+      .catch((err) => console.log(err.messge));
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,10 +25,10 @@ const OurTeamMember = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 px-4">
-        {teamMember.map((item) => (
+        {teamMembers?.map((item) => (
           <div
             key={item.name}
-            className="card border shadow-md dark:bg-yellow-50">
+            className="card border shadow-md dark:bg-yellow-50 group overflow-hidden hover:border-yellow-400">
             <div className="card-body">
               <h2 className="text-xl md:text-3xl font-bold text-center font-chakraPetch dark:text-slate-600">
                 {item.name}
@@ -80,6 +42,22 @@ const OurTeamMember = () => {
                   src={item.image}
                   alt={item.name}
                 />
+              </div>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 -bottom-20 group-hover:bottom-5 transition-all duration-300">
+              <div className="flex items-center gap-2 p-2 group-hover:bg-yellow-400 rounded-md">
+                <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
+                  <FaFacebook size={25} />
+                </div>
+                <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
+                  <FaTwitter size={25} />
+                </div>
+                <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
+                  <FaGithub size={25} />
+                </div>
+                <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
+                  <FaLinkedin size={25} />
+                </div>
               </div>
             </div>
           </div>
