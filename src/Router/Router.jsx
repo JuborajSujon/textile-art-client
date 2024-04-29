@@ -96,7 +96,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/product/${params.id}`
+          ),
       },
 
       {
@@ -107,7 +109,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/product/${params.id}`
+          ),
       },
     ],
   },

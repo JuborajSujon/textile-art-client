@@ -4,9 +4,9 @@
 
 ### Live Site URL:
 
-Firebase Hosting : []()
+Firebase Hosting : [https://textile-art-ta.web.app/](https://textile-art-ta.web.app/)
 
-Netlify Hosting : []()
+Netlify Hosting : [https://textile-art.netlify.app/](https://textile-art.netlify.app/)
 
 ## Features and Characteristics:
 

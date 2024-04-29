@@ -26,13 +26,16 @@ const AddCraftItem = () => {
     };
 
     // send data to server
-    fetch("http://localhost:5000/addProduct", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    })
+    fetch(
+      "https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/addProduct",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((getData) => {
         if (getData.acknowledged) {

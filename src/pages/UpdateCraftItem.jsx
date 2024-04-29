@@ -65,13 +65,16 @@ const UpdateCraftItem = () => {
       userName: userName,
     };
 
-    fetch(`http://localhost:5000/updateProduct/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    })
+    fetch(
+      `https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/updateProduct/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((getData) => {
         if (getData.acknowledged) {

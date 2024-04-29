@@ -18,7 +18,9 @@ const SpecificCategoryCarft = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/subcategory/${params.category}`)
+    fetch(
+      `https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/subcategory/${params.category}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoadedData(data);

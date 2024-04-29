@@ -18,9 +18,12 @@ const MyCraftCard = ({ product }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/productdelete/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/productdelete/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

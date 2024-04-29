@@ -14,7 +14,9 @@ const AllCraft = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/products")
+    fetch(
+      "https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/products"
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoadedData(data);
