@@ -3,6 +3,7 @@ import AIChat from "../components/AIChat/AIChat";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import GeneralLoading from "../components/GeneralLoading/GeneralLoading";
+import { Helmet } from "react-helmet-async";
 
 const OurTeamMember = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -25,6 +26,9 @@ const OurTeamMember = () => {
 
   return (
     <div className="pt-20 sm:pt-5">
+      <Helmet>
+        <title>Textile Art | Our Team</title>
+      </Helmet>
       <SectionTitle
         title="A Dynamic Team."
         desctiption="Our team of skilled professionals who are dedicated to providing exceptional service and quality products."
