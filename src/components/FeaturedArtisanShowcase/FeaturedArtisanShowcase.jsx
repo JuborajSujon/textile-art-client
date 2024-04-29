@@ -15,9 +15,7 @@ const FeaturedArtisanShowcase = () => {
   ];
 
   useEffect(() => {
-    fetch(
-      "https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/artisans"
-    )
+    fetch("https://textile-art-server.vercel.app/artisans")
       .then((res) => res.json())
       .then((data) => {
         setArtisans(data);

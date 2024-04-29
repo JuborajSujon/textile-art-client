@@ -13,9 +13,7 @@ const FAQ = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      "https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/faq"
-    )
+    fetch("https://textile-art-server.vercel.app/faq")
       .then((res) => res.json())
       .then((data) => {
         setFaq(data);

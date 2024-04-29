@@ -11,9 +11,7 @@ const OurTeamMember = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      "https://textile-art-server-41133yyib-md-sujon-miahs-projects-5e83d33c.vercel.app/teamMember"
-    )
+    fetch("https://textile-art-server.vercel.app/teamMember")
       .then((res) => res.json())
       .then((data) => {
         setTeamMembers(data);
