@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MyCraftCard from "../components/MyCraftCard/MyCraftCard";
 import useAuth from "../customHook/useAuth";
 import GeneralLoading from "../components/GeneralLoading/GeneralLoading";
+import { Helmet } from "react-helmet-async";
 
 const MyCraftList = () => {
   const { user } = useAuth();
@@ -42,6 +43,9 @@ const MyCraftList = () => {
 
   return (
     <div className="pt-20 sm:pt-4 pb-20">
+      <Helmet>
+        <title>Textile Art | My Craft List</title>
+      </Helmet>
       <div className="text-center">
         <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold dark:text-slate-200 ">
           My Craft List
