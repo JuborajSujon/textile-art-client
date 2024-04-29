@@ -14,6 +14,7 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import SpecificCategoryCarft from "../pages/SpecificCategoryCarft";
 import OurTeamMember from "../pages/OurTeamMember";
 import FAQ from "../pages/FAQ";
+import Contact from "../pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQ />,
+      },
+
+      {
+        path: "/contact",
+        element: <Contact />,
       },
 
       {
