@@ -24,7 +24,7 @@ const OurTeamMember = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pt-20 sm:pt-5">
       <SectionTitle
         title="A Dynamic Team."
         desctiption="Our team of skilled professionals who are dedicated to providing exceptional service and quality products."
