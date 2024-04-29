@@ -1,7 +1,5 @@
 # Textile Art
 
-## Selected Categories: B9 A10 Type-02 Requirements
-
 ### Live Site URL:
 
 Firebase Hosting : [https://textile-art-ta.web.app/](https://textile-art-ta.web.app/)
@@ -23,6 +21,15 @@ Netlify Hosting : [https://textile-art.netlify.app/](https://textile-art.netlify
 - **Engaging Visuals**: Enhance user interaction with captivating animations powered by the tsparticles, animate.css, and aos npm packages.
 
 - **User-friendly Interface**: Our website is designed with a modern and intuitive user interface, ensuring a smooth and intuitive experience for all users.
+
+## Selected Categories Name:
+
+- **Embroidery**
+- **Knitting & Crocheting**
+- **Quilting**
+- **Beadwork**
+- **Tie-dyeing**
+- **Macrame**
 
 ## Challenges Faced:
 
