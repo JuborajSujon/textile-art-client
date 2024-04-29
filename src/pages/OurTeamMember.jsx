@@ -2,14 +2,20 @@ import { useEffect, useState } from "react";
 import AIChat from "../components/AIChat/AIChat";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import GeneralLoading from "../components/GeneralLoading/GeneralLoading";
 
 const OurTeamMember = () => {
   const [teamMembers, setTeamMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5000/teamMember")
       .then((res) => res.json())
-      .then((data) => setTeamMembers(data))
+      .then((data) => {
+        setTeamMembers(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err.messge));
   }, []);
 
@@ -20,9 +26,11 @@ const OurTeamMember = () => {
   return (
     <div>
       <SectionTitle
-        title="Our Team Member"
+        title="A Dynamic Team."
         desctiption="Our team of skilled professionals who are dedicated to providing exceptional service and quality products."
       />
+
+      {loading && <GeneralLoading />}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 px-4">
         {teamMembers?.map((item) => (
@@ -47,16 +55,25 @@ const OurTeamMember = () => {
             <div className="absolute left-1/2 -translate-x-1/2 -bottom-20 group-hover:bottom-5 transition-all duration-300">
               <div className="flex items-center gap-2 p-2 group-hover:bg-yellow-400 rounded-md">
                 <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
-                  <FaFacebook size={25} />
+                  <FaFacebook
+                    className="dark:group-hover:text-white"
+                    size={25}
+                  />
                 </div>
                 <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
-                  <FaTwitter size={25} />
+                  <FaTwitter
+                    className="dark:group-hover:text-white"
+                    size={25}
+                  />
                 </div>
                 <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
-                  <FaGithub size={25} />
+                  <FaGithub className="dark:group-hover:text-white" size={25} />
                 </div>
                 <div className="p-2 rounded-md cursor-pointer border border-slate-900 hover:bg-slate-900 hover:text-white">
-                  <FaLinkedin size={25} />
+                  <FaLinkedin
+                    className="dark:group-hover:text-white"
+                    size={25}
+                  />
                 </div>
               </div>
             </div>
