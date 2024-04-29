@@ -5,6 +5,7 @@ import { LuBadgeDollarSign } from "react-icons/lu";
 import { BsFiletypeDoc } from "react-icons/bs";
 import { Link, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 const CraftDetails = () => {
   const loadedData = useLoaderData();
   const {
@@ -25,6 +26,9 @@ const CraftDetails = () => {
   }, []);
   return (
     <div className="px-4 pt-20 sm:pt-10 pb-20 ">
+      <Helmet>
+        <title>Textile Art | {item_name}</title>
+      </Helmet>
       <div className="flex flex-col md:flex-row justify-between gap-6">
         <div>
           <div>
