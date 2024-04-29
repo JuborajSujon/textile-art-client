@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
 
 const ThemeController = () => {
   const [theme, setTheme] = useState("light");
