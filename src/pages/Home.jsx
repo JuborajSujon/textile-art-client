@@ -6,6 +6,7 @@ import AIChat from "../components/AIChat/AIChat";
 import AnimatedNumber from "./../components/AnimatedNumber/AnimatedNumber";
 import ClientReview from "../components/ClientReview/ClientReview";
 import { useEffect } from "react";
+import FeaturedArtisanShowcase from "../components/FeaturedArtisanShowcase/FeaturedArtisanShowcase";
 
 const Home = () => {
   //  ensure that the new page starts at the top when navigating
@@ -20,6 +21,7 @@ const Home = () => {
       <HeroSlider />
       <ListingCategories />
       <CraftItem />
+      <FeaturedArtisanShowcase />
       <AnimatedNumber />
       <ClientReview />
       <AIChat />
