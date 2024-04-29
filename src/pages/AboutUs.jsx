@@ -2,8 +2,12 @@ import { Helmet } from "react-helmet-async";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import EmbracingInnovation from "../components/EmbracingInnovation/EmbracingInnovation";
 import GrowthAchievement from "../components/GrowthAchievement/GrowthAchievement";
+import { useEffect } from "react";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="pt-20 sm:pt-5">
       <Helmet>

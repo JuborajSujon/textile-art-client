@@ -3,8 +3,12 @@ import ContactFrom from "../components/ContactFrom/ContactFrom";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import GoogleMapContact from "./../components/GoogleMapContact/GoogleMapContact";
 import ContactDetails from "../components/ContactDetails/ContactDetails";
+import { useEffect } from "react";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="pt-20 sm:pt-5">
       <Helmet>
