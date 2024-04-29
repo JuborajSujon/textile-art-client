@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AIChat from "../components/AIChat/AIChat";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import GeneralLoading from "../components/GeneralLoading/GeneralLoading";
+import { Helmet } from "react-helmet-async";
 
 const FAQ = () => {
   const [faq, setFaq] = useState([]);
@@ -25,6 +26,10 @@ const FAQ = () => {
 
   return (
     <div className="pt-20 sm:pt-5">
+      <Helmet>
+        <title>Textile Art | FAQ</title>
+      </Helmet>
+
       <SectionTitle
         title="Frequently Asked Questions"
         desctiption="Here are some of the most frequently asked questions about our website. We're here to help. If you have any questions, please don't hesitate to ask."
