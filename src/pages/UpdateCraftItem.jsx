@@ -160,11 +160,12 @@ const UpdateCraftItem = () => {
                           {...register("subcategory_name", { required: true })}
                           className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                           <option value="embroidery">Embroidery</option>
-                          <option value="kniting & crocheting">
-                            Kniting & Crocheting
+                          <option value="knitting & crocheting">
+                            Knitting & Crocheting
                           </option>
                           <option value="quilting">Quilting</option>
-                          <option value="beadwork">Beadwork</option>
+                          <option value="breadwork">Beadwork</option>
+                          <option value="tie-dyeing">Tie-dyeing</option>
                           <option value="macrame">Macrame</option>
                         </select>
                         {errors.name && (

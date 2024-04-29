@@ -122,11 +122,12 @@ const AddCraftItem = () => {
                             Category Name
                           </option>
                           <option value="embroidery">Embroidery</option>
-                          <option value="kniting & crocheting">
-                            Kniting & Crocheting
+                          <option value="knitting & crocheting">
+                            Knitting & Crocheting
                           </option>
                           <option value="quilting">Quilting</option>
-                          <option value="beadwork">Beadwork</option>
+                          <option value="breadwork">Beadwork</option>
+                          <option value="tie-dyeing">Tie-dyeing</option>
                           <option value="macrame">Macrame</option>
                         </select>
                         {errors.subcategory_name && (
@@ -164,7 +165,7 @@ const AddCraftItem = () => {
                           {...register("price", { required: true })}
                           type="number"
                           id="form-price"
-                          className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Price in dollar"
                         />
                         {errors.price && (
@@ -183,7 +184,7 @@ const AddCraftItem = () => {
                           {...register("rating", { required: true })}
                           type="text"
                           id="form-rating"
-                          className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Rating"
                         />
                         {errors.rating && (
@@ -202,7 +203,7 @@ const AddCraftItem = () => {
                           {...register("processing_time", { required: true })}
                           type="text"
                           id="form-rating"
-                          className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Processing Time"
                         />
                         {errors.processing_time && (
