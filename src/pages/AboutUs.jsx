@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import EmbracingInnovation from "../components/EmbracingInnovation/EmbracingInnovation";
+import GrowthAchievement from "../components/GrowthAchievement/GrowthAchievement";
 
 const AboutUs = () => {
   return (
@@ -16,6 +17,9 @@ const AboutUs = () => {
 
       {/* Embracing the power of creativity */}
       <EmbracingInnovation />
+
+      {/* Growth and Achivement */}
+      <GrowthAchievement />
     </div>
   );
 };

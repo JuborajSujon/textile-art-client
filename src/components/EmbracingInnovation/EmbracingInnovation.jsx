@@ -43,7 +43,6 @@ const EmbracingInnovation = () => {
               </h6>
             </div>
             <button className="btn border-2 bg-yellow-400 text-slate-900 hover:bg-transparent hover:text-slate-900 hover:border-yellow-400 dark:hover:text-slate-200">
-              {" "}
               Start writing for free
             </button>
           </div>
