@@ -15,6 +15,7 @@ import SpecificCategoryCarft from "../pages/SpecificCategoryCarft";
 import OurTeamMember from "../pages/OurTeamMember";
 import FAQ from "../pages/FAQ";
 import Contact from "../pages/Contact";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+
+      {
+        path: "/about",
+        element: <AboutUs />,
       },
 
       {
