@@ -53,11 +53,11 @@ const FeaturedArtisanShowcase = () => {
                   alt={artisans[currentIndex]?.name}
                 />
               </div>
-              <p className="text-lg md:text-3xl text-center font-bold mt-2">
+              <p className="text-lg md:text-3xl text-slate-800 text-center font-bold mt-2">
                 {artisans[currentIndex]?.name}
               </p>
             </div>
-            <div className="md:col-7 md:order-1 lg:col-6">
+            <div className="md:col-7 md:order-1 text-slate-800 lg:col-6">
               <h2 className="mb-2 text-2xl md:text-4xl lg:text-5xl  sky-200xl font-extrabold">
                 Meet Our Featured Artisan
               </h2>
