@@ -182,7 +182,7 @@ const AddCraftItem = () => {
                         </label>
                         <input
                           {...register("rating", { required: true })}
-                          type="text"
+                          type="number"
                           id="form-rating"
                           className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           placeholder="Rating"
@@ -204,7 +204,7 @@ const AddCraftItem = () => {
                           type="text"
                           id="form-rating"
                           className="border-0 px-3 py-3 font-chakraPetch placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                          placeholder="Processing Time"
+                          placeholder="Processing Time like 4 days"
                         />
                         {errors.processing_time && (
                           <p className="text-red-500">
